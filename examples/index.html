@@ -1,0 +1,146 @@
+<html>
+<head>
+    <title>Revealing.js example</title>
+    <meta charset="utf8">
+
+    <script src="../bower_components/jquery/jquery.js"></script>
+    <script src="../src/revealing.js"></script>
+    <link rel="stylesheet" href="../dist/revealing.css"></script>
+    <style>
+        html {
+            background: #f0f0f0;
+        }
+        body {
+            font-family: "Helvetica Neue", Helvetica, sans-serif;
+            font-weight: 300;
+            padding-top: 80px;
+        }
+        h1 {
+            font-weight: 100;
+            font-size: 3rem;
+        }
+        h2,h3,h4,h5,h6 {
+            font-weight: 500;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+            border-bottom: .0625rem dotted;
+        }
+        a:hover {
+            color:#0276b0;
+        }
+        header {
+            margin-bottom: 4em;
+        }
+        section {
+            position: relative;
+            margin-bottom: 3em;
+            border-bottom: 1px solid #ddd;
+        }
+        blockquote {
+            font-family: Menlo, "Helvetica Neue", Helvetica, sans-serif;
+            line-height: 1.6em;
+            margin: 0 0 0 20px;
+        }
+        blockquote::before {
+            content: '\201C';
+            margin-left: -20px;
+        }
+        blockquote::before, blockquote::after {
+            display: inline-block;
+            position: absolute;
+            width: 20px;
+            font-family: "Helvetica Neue", Helvetica, sans-serif;
+            color: #888;
+        }
+        blockquote a {
+            text-decoration: underline;
+            border-bottom: none;
+        }
+        .container {
+            width: 70%;
+            margin: 0 15%;
+        }
+        .play {
+            display: inline-block;
+            margin-top: 2em;
+            padding: 0.5em 0.8em;
+            background: #dedede;
+            border-bottom: none;
+        }
+        .play::before {
+            content: '\25BA';
+            display: inline-block;
+            margin-right: 10px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function() {
+            var fancySelector = '.fancy-title, .fancy-quote';
+
+            // initialize
+            $(fancySelector).revealing();
+
+            // run the initial animation
+            setTimeout(function() {
+                $(fancySelector).revealing('show');
+            }, 300);
+
+            // replay
+            $('.play').on('click', function(e) {
+                e.preventDefault();
+                var target = $(this).attr('href');
+
+                // only replay the targeted elements
+                $(target).find(fancySelector).revealing('reset');
+                setTimeout(function() {
+                    $(target).find(fancySelector).revealing('show');
+                }, 100);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="fancy-title revealing">Revealing.js</h1>
+            <p>Inspired from the <a href="https://www.secret.ly/">Secret app</a> text animation.</p>
+        </header>
+
+        <section id="pure-text">
+            <h2>Pure text</h2>
+            <blockquote class="fancy-quote revealing">
+                <p>There are no secrets that time does not reveal.</p>
+                <footer>
+                    <cite><a href="">Jean Racine</a> <br>Britannicus, Act 4, sc. 4 (1669)</cite>
+                </footer>
+            </blockquote>
+            <a href="#pure-text" class="play">play</a>
+        </section>
+
+        <section id="maintain-styling">
+            <h2>Maintain styling</h2>
+            <blockquote class="fancy-quote revealing">
+                <p>It will be found an unjust and <u>unwise</u> jealousy to deprive a man of his <b>natural <u>liberty</u></b> upon the supposition he may abuse it.</p>
+                <footer>
+                    <cite><a href="http://en.wikiquote.org/wiki/Talk:George_Washington">George Washington</a></cite>
+                </footer>
+            </blockquote>
+            <a href="#maintain-styling" class="play">play</a>
+        </section>
+
+        <section id="support-line-breaks">
+            <h2>Support line breaks</h2>
+            <blockquote class="fancy-quote revealing">
+                <p>The tree of liberty must be refreshed <br>from time to time [&hellip;]</p>
+                <footer>
+                    <cite><a href="http://www.theatlantic.com/past/docs/issues/96oct/obrien/blood.htm">Thomas Jefferson</a> <br>Paris, November 13, 1787</cite>
+                </footer>
+            </blockquote>
+            <a href="#support-line-breaks" class="play">play</a>
+        </section>
+    </div>
+</body>
+</html>

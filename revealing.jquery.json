@@ -1,0 +1,28 @@
+{
+  "name": "revealing",
+  "title": "Revealing.js",
+  "description": "Reveal your html text content with a delightful letter by letter animation. Inspired by Secret.",
+  "version": "0.0.1",
+  "homepage": "",
+  "author": {
+    "name": "Pierre Dulac",
+    "url": "https://github.com/dulaccc"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": "",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": "~1.7.2"
+  },
+  "keywords": [
+    "jquery-plugin"
+  ]
+}

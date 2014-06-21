@@ -1,0 +1,63 @@
+/*
+ * Revealing.js
+ * 
+ *
+ * Copyright (c) 2014 Pierre Dulac
+ * Licensed under the MIT license.
+*/
+
+
+////
+// Mixins
+
+/**
+ * Pseudo random generator between [0,1]
+ */
+@function next_random($x) {
+    $a: 11;  // a - 1 should be divisible by m's prime factors
+    $c: 17;  // c and m should be co-prime
+    $m: 25;
+    @return ($a * $x + $c) % $m;
+}
+
+
+////
+// Vars
+
+// number of unique reveal blocks
+$reveal-seqences: 18;
+
+// duration of the reveal animation
+$reveal-duration: 1.5s;
+
+// animation delay
+$reveal-base-delay: 0.05s;
+
+
+////
+// Styles
+
+.revealing {
+    span {
+        opacity: 0;
+        transition: opacity ease $reveal-duration;
+    }
+
+    &.reveal {
+        span {
+            opacity: 1;
+        }
+        @for $i from 1 through $reveal-seqences {
+            $rand: next_random($i);
+            span:nth-child(#{$reveal-seqences}n+#{$rand}) {
+                transition-delay: $i * $reveal-base-delay;
+            }
+        }
+    }
+
+    &.reset {
+    	span {
+    		transition: none;
+    	}
+    }
+}
