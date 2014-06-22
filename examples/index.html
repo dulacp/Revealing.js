@@ -74,18 +74,38 @@
             display: inline-block;
             margin-right: 10px;
         }
+        .bloc {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            background-color: #ff8271;
+        }
     </style>
 
     <script>
         $(document).ready(function() {
-            var fancySelector = '.fancy-title, .fancy-quote';
+            // build blocs
+            var blocs = Array.apply(null, Array(20)).map(function() {
+                 $('.fancy-blocks').append($('<div class="bloc"></div>'));
+            });
 
             // initialize
-            $(fancySelector).revealing();
+            $('.fancy-title, .fancy-quote').revealing();
+            $('.fancy-blocks').revealing({
+                tokenizer: function(node) {
+                    if ($(node).children('.bloc').length) {
+                        $(node).children('.bloc').wrap('<span></span>');
+                        return [node];
+                    }
+
+                    return null;
+                }
+            });
 
             // run the initial animation
             setTimeout(function() {
-                $(fancySelector).revealing('show');
+                $('.revealing').revealing('show');
             }, 300);
 
             // replay
@@ -94,9 +114,9 @@
                 var target = $(this).attr('href');
 
                 // only replay the targeted elements
-                $(target).find(fancySelector).revealing('reset');
+                $(target).find('.revealing').revealing('reset');
                 setTimeout(function() {
-                    $(target).find(fancySelector).revealing('show');
+                    $(target).find('.revealing').revealing('show');
                 }, 100);
             });
         });
@@ -140,6 +160,14 @@
                 </footer>
             </blockquote>
             <a href="#support-line-breaks" class="play">play</a>
+        </section>
+
+        <section id="custom-tokenizer">
+            <h2>Custom tokenizer</h2>
+            <p>You can reveal any type of html blocks as long as you provide your custom tokenizer method.</p>
+            <div class="fancy-blocks revealing">
+            </div>
+            <a href="#custom-tokenizer" class="play">play</a>
         </section>
     </div>
 </body>
