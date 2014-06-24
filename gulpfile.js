@@ -37,7 +37,15 @@ gulp.task('watch', function() {
 
 gulp.task('qunit', function() {
     return gulp.src('./test/test-runner.html')
-        .pipe(qunit());
+        .pipe(qunit())
+        .on('error', function(err) {
+            errorCode = 1;
+            process.emit('exit', [errorCode]);
+        });
+});
+
+process.on('exit', function (errorCode) {
+    process.exit(errorCode);
 });
 
 gulp.task('build', ['scripts', 'styles']);
