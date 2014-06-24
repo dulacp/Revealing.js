@@ -1,6 +1,11 @@
-/*! revealing - v0.0.1 - 2014-06-24
-* https://github.com/dulaccc/revealing
-* Copyright (c) 2014 Pierre Dulac; Licensed MIT */
+/**
+ * revealing - Revealing.js
+ * @version v0.0.1
+ * @link https://github.com/dulaccc/revealing
+ *
+ * Copyright (c) 2014 Pierre Dulac
+ * LICENSED MIT
+ */
 (function ($, window, document, undefined) {
 
     var pluginName = "revealing",
@@ -38,7 +43,7 @@
      */
     function injector(root, tokenizer) {
         if (tokenizer === undefined) {
-            throw Error("You need to specify a tokenizer method");
+            throw new Error("You need to specify a tokenizer method");
         }
 
         // split elements
