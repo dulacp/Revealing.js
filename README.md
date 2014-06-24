@@ -20,17 +20,12 @@ Reveal your text with a delightful letter by letter animation.
 bower install Revealing.js
 ```
 
-### Grab compiled version for production
+### Development version
 
-- [jquery.revealing.min.js](https://raw.github.com/dulaccc/jquery-revealing/master/dist/jquery.revealing.min.js)
-- [revealing.css](https://raw.github.com/dulaccc/jquery-revealing/master/dist/revealing.css)
+- [revealing.js](https://raw.githubusercontent.com/dulaccc/Revealing.js/master/src/revealing.js)
+- [revealing.scss](https://raw.githubusercontent.com/dulaccc/Revealing.js/master/src/revealing.scss)
 
-### Grab development version
-
-- [jquery.revealing.min.js](https://raw.github.com/dulaccc/jquery-revealing/master/dist/jquery.revealing.js)
-- [revealing.css](https://raw.github.com/dulaccc/jquery-revealing/master/dist/revealing.css)
-
-### Build from sources
+### Build compiled version from sources
 
 3 simple steps: 
 - clone `git clone https://github.com/dulaccc/Revealing.js.git && cd Revealing.js`
