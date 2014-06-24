@@ -110,7 +110,7 @@ module.exports = function (grunt) {
 
   // Default task.
   grunt.registerTask('build', ['clean', 'concat', 'uglify', 'compass', 'autoprefixer']);
-  grunt.registerTask('build', ['watch', 'build']);
+  grunt.registerTask('dev', ['watch', 'build']);
   grunt.registerTask('default', ['jshint', 'connect', 'qunit', 'build']);
   grunt.registerTask('server', function () {
     grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
