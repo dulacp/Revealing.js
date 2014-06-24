@@ -1,6 +1,6 @@
 /**
  * revealing - Revealing.js
- * @version v0.0.1
+ * @version v0.1.0
  * @link https://github.com/dulaccc/revealing
  *
  * Copyright (c) 2014 Pierre Dulac
