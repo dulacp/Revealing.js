@@ -43,7 +43,7 @@
      */
     function injector(root, tokenizer) {
         if (tokenizer === undefined) {
-            throw Error("You need to specify a tokenizer method");
+            throw new Error("You need to specify a tokenizer method");
         }
 
         // split elements
