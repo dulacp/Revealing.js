@@ -21,6 +21,7 @@
     }
   ],
   "devDependencies": {
+    "bower": "^1.3.5",
     "jshint-stylish": "~0.1.3",
     "gulp": "^3.8.2",
     "gulp-rename": "^1.2.0",
@@ -32,6 +33,7 @@
     "gulp-qunit": "^0.3.3"
   },
   "scripts": {
+    "postinstall" : "bower install",
     "test": "gulp test"
   }
 }
