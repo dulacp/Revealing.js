@@ -1,0 +1,74 @@
+html {
+    background: #fff;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: 300;
+    padding-top: 80px;
+}
+h1 {
+    font-weight: 100;
+    font-size: 3rem;
+}
+h2,h3,h4,h5,h6 {
+    font-weight: 500;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+    border-bottom: .0625rem dotted;
+}
+a:hover {
+    color:#0276b0;
+}
+header {
+    margin-bottom: 4em;
+}
+section {
+    position: relative;
+    margin-bottom: 3em;
+    border-bottom: 1px solid #ddd;
+}
+blockquote {
+    font-family: Menlo, "Helvetica Neue", Helvetica, sans-serif;
+    line-height: 1.6em;
+    margin: 0 0 0 20px;
+}
+blockquote::before {
+    content: '\201C';
+    margin-left: -20px;
+}
+blockquote::before, blockquote::after {
+    display: inline-block;
+    position: absolute;
+    width: 20px;
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    color: #888;
+}
+blockquote a {
+    text-decoration: underline;
+    border-bottom: none;
+}
+.container {
+    width: 70%;
+    margin: 0 15%;
+}
+.play {
+    display: inline-block;
+    margin-top: 2em;
+    padding: 0.5em 0.8em;
+    background: #dedede;
+    border-bottom: none;
+}
+.play::before {
+    content: '\25BA';
+    display: inline-block;
+    margin-right: 10px;
+}
+.bloc {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    background-color: #ff8271;
+}
