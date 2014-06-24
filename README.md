@@ -32,7 +32,7 @@ bower install Revealing.js
 3 simple steps: 
 - clone `git clone https://github.com/dulaccc/Revealing.js.git && cd Revealing.js`
 - install dependencies `npm install`
-- build `grunt build`
+- build `gulp build`
 
 Then you'll find the compiled code in `dist/`.
 
