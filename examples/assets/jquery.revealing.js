@@ -1,4 +1,4 @@
-/*! revealing - v0.0.2 - 2014-06-24
+/*! revealing - v0.0.1 - 2014-06-24
 * https://github.com/dulaccc/revealing
 * Copyright (c) 2014 Pierre Dulac; Licensed MIT */
 (function ($, window, document, undefined) {
