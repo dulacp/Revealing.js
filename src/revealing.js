@@ -1,11 +1,3 @@
-/**
- * Revealing.js
- * 
- *
- * Copyright (c) 2014 Pierre Dulac
- * Licensed under the MIT license.
- */
-
 (function ($, window, document, undefined) {
 
     var pluginName = "revealing",
