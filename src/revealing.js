@@ -77,6 +77,10 @@
     // Avoid Plugin.prototype conflicts
     $.extend(Plugin.prototype, {
         init: function () {
+            // add the base animation class if not already present
+            $(this.element).addClass('revealing');
+
+            // split the elements
             this.tokenize();
         },
         tokenize: function() {
