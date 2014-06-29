@@ -16,9 +16,10 @@
                 }
 
                 return null;
-            }
+            },
         },
         methods = {
+<<<<<<< HEAD
             show: function() {
                 this.removeClass('reset').addClass('reveal');
             },
@@ -27,6 +28,17 @@
             },
             reset: function() {
                 this.addClass('reset').removeClass('reveal');
+=======
+            show: function(args) {
+                this.css({"color": args["color"]});
+                this.removeClass('reset hide').addClass('reveal');
+            },
+            hide: function(args) {
+                this.removeClass('reset reveal').addClass('hide');
+            },
+            reset: function(args) {
+                this.removeClass('hide reveal').addClass('reset');
+>>>>>>> 4a25b8a... feat: add a color option on plugin instanciation
             }
         };
 
@@ -90,10 +102,17 @@
 
     // expose the plugin
     $.fn[pluginName] = function(method, options) {
+        var defaults = {
+                color: this.css("color")
+            },
+            options = options || {};
+
         if (typeof method === 'object') {
             options = method;
             method = undefined;
         }
+
+        options = $.extend(defaults, options);
 
         // build instances
         this.each(function() {
@@ -110,7 +129,7 @@
                 throw new Error("method " + method + " not supported by revealing.js");
             }
 
-            methods[method].apply(this);
+            methods[method].call(this, options);
         }
 
         return this;
