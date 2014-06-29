@@ -5,8 +5,10 @@
 
     <script src="assets/vendors/jquery.min.js"></script>
     <script src="assets/jquery.revealing.js"></script>
+    <script type="text/javascript" src="assets/vendors/spectrum-min.js"></script>
     <link rel="stylesheet" href="assets/revealing.css">
     <link rel="stylesheet" href="assets/main.css">
+    <link rel="stylesheet" href="assets/css/spectrum.css">
 
     <script>
         $(document).ready(function() {
@@ -28,6 +30,11 @@
                 }
             });
 
+            // initialize the color picker
+            $("#colorpicker").spectrum({
+                color: "#ff00ff"
+            });
+
             // run the initial animation
             setTimeout(function() {
                 $('.revealing').revealing('show');
@@ -36,13 +43,16 @@
             // replay
             $('.play').on('click', function(e) {
                 e.preventDefault();
-                var target = $(this).attr('href');
+                var target = $(this).attr('href'),
+                    // add color pick choice
+                    chosenColor = $(target).find('input').spectrum("get").toHex() || $(target).css("color");
 
                 // only replay the targeted elements
-                $(target).find('.revealing').revealing('reset');
+                $(target).find('.revealing').revealing('reset', {color: chosenColor});
                 setTimeout(function() {
-                    $(target).find('.revealing').revealing('show');
+                    $(target).find('.revealing').revealing('show', {color: chosenColor});
                 }, 100);
+
             });
         });
     </script>
@@ -95,6 +105,18 @@
             <div class="fancy-blocks revealing">
             </div>
             <a href="#custom-tokenizer" class="play">play</a>
+        </section>
+
+        <section id="color-output">
+            <h2>Colour the input as you like</h2>
+            <span>Pick your favourite color : </span><input id="colorpicker" type='text' name='color-choice'>
+            <blockquote class="fancy-quote revealing">
+                <p>She's like a Rainbow<br>Coming, colors in the air<br>Oh, everywhere<br>She comes in colors</p>
+                <footer>
+                    <cite><a href="https://www.youtube.com/watch?v=zphAHMPtu4g">The Rolling Stones</a><br>
+                        She's a rainbow</cite>
+            </blockquote>
+            <a href="#color-output" class="play">play</a>
         </section>
     </div>
 </body>
