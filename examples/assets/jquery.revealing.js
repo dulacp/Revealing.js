@@ -28,13 +28,13 @@
         },
         methods = {
             show: function() {
-                this.removeClass('reset').addClass('reveal');
+                this.removeClass('reset hide').addClass('reveal');
             },
             hide: function() {
-                this.removeClass('reset').removeClass('reveal');
+                this.removeClass('reset reveal').addClass('hide');
             },
             reset: function() {
-                this.addClass('reset').removeClass('reveal');
+                this.removeClass('hide reveal').addClass('reset');
             }
         };
 
