@@ -46,6 +46,18 @@ $reveal-base-delay: 0.05s;
         }
     }
 
+    &.hide {
+        span {
+            opacity: 0;
+        }
+        @for $i from 1 through $reveal-seqences {
+            $rand: next_random($i);
+            span:nth-child(#{$reveal-seqences}n+#{$rand}) {
+                transition-delay: $i * $reveal-base-delay;
+            }
+        }
+    }
+
     &.reset {
     	span {
     		transition: none;
