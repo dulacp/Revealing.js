@@ -38,11 +38,21 @@
                 e.preventDefault();
                 var target = $(this).attr('href');
 
-                // only replay the targeted elements
-                $(target).find('.revealing').revealing('reset');
-                setTimeout(function() {
-                    $(target).find('.revealing').revealing('show');
-                }, 100);
+                //switch for hide events
+                if ($(target).hasClass("hide-demo")) {
+                    // only replay the targeted elements
+                    $(target).find('.revealing').revealing('hide');
+                    setTimeout(function() {
+                        $(target).find('.revealing').revealing('show');
+                    }, 3500);
+                }
+                else {
+                    // only replay the targeted elements
+                    $(target).find('.revealing').revealing('reset');
+                    setTimeout(function() {
+                        $(target).find('.revealing').revealing('show');
+                    }, 100);
+                }
             });
         });
     </script>
@@ -87,6 +97,17 @@
                 </footer>
             </blockquote>
             <a href="#support-line-breaks" class="play">play</a>
+        </section>
+
+        <section id="hide-text" class="hide-demo">
+            <h2>Hide as well as show</h2>
+            <blockquote class="fancy-quote revealing">
+                <p>Je suis jeune il est vrai<br>Mais aux &acirc;mes bien n&eacute;es<br>La valeur n'attend point le nombre des ann&eacute;es</p>
+                <footer>
+                    <cite><a href="http://www.dicocitations.com/citations/citation-4659.php">Pierre Corneille</a> <br>Le Cid, (II, 2), 1636</cite>
+                </footer>
+            </blockquote>
+            <a href="#hide-text" class="play">play</a>
         </section>
 
         <section id="custom-tokenizer">
