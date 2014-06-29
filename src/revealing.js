@@ -19,16 +19,6 @@
             },
         },
         methods = {
-<<<<<<< HEAD
-            show: function() {
-                this.removeClass('reset').addClass('reveal');
-            },
-            hide: function() {
-                this.removeClass('reset').removeClass('reveal');
-            },
-            reset: function() {
-                this.addClass('reset').removeClass('reveal');
-=======
             show: function(args) {
                 this.css({"color": args["color"]});
                 this.removeClass('reset hide').addClass('reveal');
@@ -38,7 +28,6 @@
             },
             reset: function(args) {
                 this.removeClass('hide reveal').addClass('reset');
->>>>>>> 4a25b8a... feat: add a color option on plugin instanciation
             }
         };
 
