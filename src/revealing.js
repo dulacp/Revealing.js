@@ -16,16 +16,17 @@
                 }
 
                 return null;
-            }
+            },
         },
         methods = {
-            show: function() {
+            show: function(args) {
+                this.css({"color": args["color"]});
                 this.removeClass('reset hide').addClass('reveal');
             },
-            hide: function() {
+            hide: function(args) {
                 this.removeClass('reset reveal').addClass('hide');
             },
-            reset: function() {
+            reset: function(args) {
                 this.removeClass('hide reveal').addClass('reset');
             }
         };
@@ -90,10 +91,17 @@
 
     // expose the plugin
     $.fn[pluginName] = function(method, options) {
+        var defaults = {
+                color: this.css("color")
+            },
+            options = options || {};
+
         if (typeof method === 'object') {
             options = method;
             method = undefined;
         }
+
+        options = $.extend(defaults, options);
 
         // build instances
         this.each(function() {
@@ -110,7 +118,7 @@
                 throw new Error("method " + method + " not supported by revealing.js");
             }
 
-            methods[method].apply(this);
+            methods[method].call(this, options);
         }
 
         return this;
