@@ -42,9 +42,13 @@ Then you'll find the compiled code in `dist/`.
 In your web page:
 
 ```html
-<script src="jquery.js"></script>
-<script src="dist/revealing.min.js"></script>
+<script src="bower_components/jquery/jquery.js"></script>
+<script src="dist/jquery.revealing.js"></script>
 <link rel="stylesheet" href="dist/revealing.css"></script>
+
+<body>
+    <span class="fancy-text">"Je suis jeune il est vrai mais aux &acirc;mes bien n&eacute;es la valeur n'attend point le nombre des ann&eacute;es" Le Cid -  Corneille</span>
+</body>
 
 <script>
 jQuery(function($) {
@@ -53,8 +57,9 @@ jQuery(function($) {
 
   // delay the animation just a little bit
   setTimeout(function() {
-  	$('.fancy-text').revealing('show');
+    $('.fancy-text').revealing('show');
   }, 150);
+
 });
 </script>
 ```
