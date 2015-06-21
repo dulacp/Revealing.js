@@ -42,8 +42,7 @@ Then you'll find the compiled code in `dist/`.
 In your web page:
 
 ```html
-<script src="bower_components/jquery/jquery.js"></script>
-<script src="dist/jquery.revealing.js"></script>
+<script src="dist/revealing.js"></script>
 <link rel="stylesheet" href="dist/revealing.css"></script>
 
 <body>
@@ -51,13 +50,14 @@ In your web page:
 </body>
 
 <script>
-jQuery(function($) {
+document.addEventListener('DOMContentLoaded', function() {
   // initialize the plugin
-  $('.fancy-text').revealing();
+  var el = document.querySelector('.fancy-text');
+  var reveal = new Revealing(el);
 
   // delay the animation just a little bit
   setTimeout(function() {
-    $('.fancy-text').revealing('show');
+    reveal.show();
   }, 150);
 
 });

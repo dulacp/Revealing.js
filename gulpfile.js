@@ -38,11 +38,11 @@ gulp.task('styles', function() {
 
 gulp.task('scripts', function() {
     return gulp.src('src/*.js')
-        .pipe(concat('jquery.revealing.js'))
+        .pipe(concat('revealing.js'))
         .pipe(header(banner, { pkg: pkg, year: (new Date()).getFullYear() }))
         .pipe(gulp.dest('dist'))
         .pipe(gulp.dest('examples/assets'))
-        .pipe(rename('jquery.revealing.min.js'))
+        .pipe(rename('revealing.min.js'))
         .pipe(uglify())
         .pipe(header(banner, { pkg: pkg, year: (new Date()).getFullYear() }))
         .pipe(gulp.dest('dist'));

@@ -1,3 +1,11 @@
+/**
+ * revealing - Revealing.js
+ * @version v0.1.0
+ * @link https://github.com/dulaccc/revealing
+ *
+ * Copyright (c) 2015 Pierre Dulac
+ * LICENSED MIT
+ */
 'use strict';
 
 (function(window, document, undefined) {

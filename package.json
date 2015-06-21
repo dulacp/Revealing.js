@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "description": "Revealing.js",
   "keywords": [
-    "jquery-plugin"
+    "animation",
+    "revealing",
+    "fading"
   ],
   "homepage": "https://github.com/dulaccc/revealing",
   "author": {

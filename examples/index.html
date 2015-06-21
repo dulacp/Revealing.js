@@ -3,56 +3,79 @@
     <title>Revealing.js example</title>
     <meta charset="utf8">
 
-    <script src="assets/vendors/jquery.min.js"></script>
-    <script src="assets/jquery.revealing.js"></script>
+    <script src="assets/revealing.js"></script>
     <link rel="stylesheet" href="assets/revealing.css">
     <link rel="stylesheet" href="assets/main.css">
 
     <script>
-        $(document).ready(function() {
+        document.addEventListener('DOMContentLoaded', function() {
+            var revealings = [];
+
+            // helper
+            function hasClassName(el, className) {
+                if (el.classList) {
+                    return el.classList.contains(className);
+                } else {
+                    return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
+                }
+            }
+
             // build blocs
-            var blocs = Array.apply(null, Array(20)).map(function() {
-                 $('.fancy-blocks').append($('<div class="bloc"></div>'));
+            var blocWrapper = document.querySelector('.fancy-blocks');
+            Array.apply(null, Array(20)).map(function() {
+                blocWrapper.innerHTML += '<div class="bloc"></div>';
             });
 
             // initialize
-            $('.fancy-title, .fancy-quote').revealing();
-            $('.fancy-blocks').revealing({
-                tokenizer: function(node) {
-                    if ($(node).children('.bloc').length) {
-                        $(node).children('.bloc').wrap('<span></span>');
-                        return [node];
-                    }
+            var texts = document.querySelectorAll('.fancy-title, .fancy-quote');
+            Array.prototype.forEach.call(texts, function(el) {
+                revealings.push( new Revealing(el) );
+            });
 
-                    return null;
-                }
+            var blocs = document.querySelectorAll('.fancy-blocks');
+            Array.prototype.forEach.call(blocs, function(el) {
+                revealings.push( new Revealing(el, {
+                    tokenizer: function(node) {
+                        if (node.nodeType === 1 && hasClassName(node, 'bloc')) {
+                            return '<span>'+node.outerHTML+'</span>';
+                        }
+
+                        return null;
+                    }
+                }) );
             });
 
             // run the initial animation
             setTimeout(function() {
-                $('.revealing').revealing('show');
+                revealings.forEach(function(r) {
+                    r.show();
+                });
             }, 300);
 
             // replay
-            $('.play').on('click', function(e) {
-                e.preventDefault();
-                var target = $(this).attr('href');
+            var plays = document.querySelectorAll('.play');
+            Array.prototype.forEach.call(plays, function(el) {
+                el.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var target = document.querySelector(this.getAttribute('href'));
 
-                //switch for hide events
-                if ($(target).hasClass("hide-demo")) {
+                    if (!target) {
+                        return;
+                    }
+
                     // only replay the targeted elements
-                    $(target).find('.revealing').revealing('hide');
-                    setTimeout(function() {
-                        $(target).find('.revealing').revealing('show');
-                    }, 3500);
-                }
-                else {
-                    // only replay the targeted elements
-                    $(target).find('.revealing').revealing('reset');
-                    setTimeout(function() {
-                        $(target).find('.revealing').revealing('show');
-                    }, 100);
-                }
+                    var revealElements = target.querySelectorAll('.revealing');
+                    Array.prototype.forEach.call(revealElements, function(rel) {
+                        revealings.forEach(function(r) {
+                            if (rel == r.element) {
+                                r.reset();
+                                setTimeout(function() {
+                                    r.show();
+                                }, 100);
+                            }
+                        });
+                    });
+                });
             });
         });
     </script>
