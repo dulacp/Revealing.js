@@ -70,9 +70,6 @@ document.addEventListener('DOMContentLoaded', function() {
 **show**  
 Reveal the text
 
-**hide**  
-Unreveal the text
-
 **reset**  
 Reset the text to play the animation again
 

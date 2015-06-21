@@ -61,62 +61,70 @@
 .revealing.reveal span:nth-child(18n+15) {
   -webkit-transition-delay: 0.9s;
   transition-delay: 0.9s; }
-.revealing.hide span {
+.revealing.reset span {
+  -webkit-transition: none;
+  transition: none; }
+
+.unrevealing span {
+  opacity: 1;
+  -webkit-transition: opacity ease 1.5s;
+  transition: opacity ease 1.5s; }
+.unrevealing.reveal span {
   opacity: 0; }
-.revealing.hide span:nth-child(18n+3) {
+.unrevealing.reveal span:nth-child(18n+3) {
   -webkit-transition-delay: 0.05s;
   transition-delay: 0.05s; }
-.revealing.hide span:nth-child(18n+14) {
+.unrevealing.reveal span:nth-child(18n+14) {
   -webkit-transition-delay: 0.1s;
   transition-delay: 0.1s; }
-.revealing.hide span:nth-child(18n+0) {
+.unrevealing.reveal span:nth-child(18n+0) {
   -webkit-transition-delay: 0.15s;
   transition-delay: 0.15s; }
-.revealing.hide span:nth-child(18n+11) {
+.unrevealing.reveal span:nth-child(18n+11) {
   -webkit-transition-delay: 0.2s;
   transition-delay: 0.2s; }
-.revealing.hide span:nth-child(18n+22) {
+.unrevealing.reveal span:nth-child(18n+22) {
   -webkit-transition-delay: 0.25s;
   transition-delay: 0.25s; }
-.revealing.hide span:nth-child(18n+8) {
+.unrevealing.reveal span:nth-child(18n+8) {
   -webkit-transition-delay: 0.3s;
   transition-delay: 0.3s; }
-.revealing.hide span:nth-child(18n+19) {
+.unrevealing.reveal span:nth-child(18n+19) {
   -webkit-transition-delay: 0.35s;
   transition-delay: 0.35s; }
-.revealing.hide span:nth-child(18n+5) {
+.unrevealing.reveal span:nth-child(18n+5) {
   -webkit-transition-delay: 0.4s;
   transition-delay: 0.4s; }
-.revealing.hide span:nth-child(18n+16) {
+.unrevealing.reveal span:nth-child(18n+16) {
   -webkit-transition-delay: 0.45s;
   transition-delay: 0.45s; }
-.revealing.hide span:nth-child(18n+2) {
+.unrevealing.reveal span:nth-child(18n+2) {
   -webkit-transition-delay: 0.5s;
   transition-delay: 0.5s; }
-.revealing.hide span:nth-child(18n+13) {
+.unrevealing.reveal span:nth-child(18n+13) {
   -webkit-transition-delay: 0.55s;
   transition-delay: 0.55s; }
-.revealing.hide span:nth-child(18n+24) {
+.unrevealing.reveal span:nth-child(18n+24) {
   -webkit-transition-delay: 0.6s;
   transition-delay: 0.6s; }
-.revealing.hide span:nth-child(18n+10) {
+.unrevealing.reveal span:nth-child(18n+10) {
   -webkit-transition-delay: 0.65s;
   transition-delay: 0.65s; }
-.revealing.hide span:nth-child(18n+21) {
+.unrevealing.reveal span:nth-child(18n+21) {
   -webkit-transition-delay: 0.7s;
   transition-delay: 0.7s; }
-.revealing.hide span:nth-child(18n+7) {
+.unrevealing.reveal span:nth-child(18n+7) {
   -webkit-transition-delay: 0.75s;
   transition-delay: 0.75s; }
-.revealing.hide span:nth-child(18n+18) {
+.unrevealing.reveal span:nth-child(18n+18) {
   -webkit-transition-delay: 0.8s;
   transition-delay: 0.8s; }
-.revealing.hide span:nth-child(18n+4) {
+.unrevealing.reveal span:nth-child(18n+4) {
   -webkit-transition-delay: 0.85s;
   transition-delay: 0.85s; }
-.revealing.hide span:nth-child(18n+15) {
+.unrevealing.reveal span:nth-child(18n+15) {
   -webkit-transition-delay: 0.9s;
   transition-delay: 0.9s; }
-.revealing.reset span {
+.unrevealing.reset span {
   -webkit-transition: none;
   transition: none; }

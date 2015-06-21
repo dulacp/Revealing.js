@@ -46,7 +46,20 @@ $reveal-base-delay: 0.05s;
         }
     }
 
-    &.hide {
+    &.reset {
+    	span {
+    		transition: none;
+    	}
+    }
+}
+
+.unrevealing {
+    span {
+        opacity: 1;
+        transition: opacity ease $reveal-duration;
+    }
+
+    &.reveal {
         span {
             opacity: 0;
         }
@@ -59,8 +72,8 @@ $reveal-base-delay: 0.05s;
     }
 
     &.reset {
-    	span {
-    		transition: none;
-    	}
+        span {
+            transition: none;
+        }
     }
 }

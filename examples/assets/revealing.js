@@ -12,6 +12,8 @@
     var defaultOptions;
 
     defaultOptions = {
+        className: 'revealing',
+        
         /**
          * Tokenizer method
          *
@@ -114,7 +116,7 @@
 
     Revealing.prototype.init = function() {
         // add the base animation class if not already present
-        addClassName(this.element, 'revealing');
+        addClassName(this.element, this.settings.className);
 
         // split the elements
         this.tokenize();
@@ -127,18 +129,10 @@
     // public methods
     Revealing.prototype.show = function() {
         removeClassName(this.element, 'reset');
-        removeClassName(this.element, 'hide');
         addClassName(this.element, 'reveal');
     };
 
-    Revealing.prototype.hide = function() {
-        removeClassName(this.element, 'reset');
-        removeClassName(this.element, 'reveal');
-        addClassName(this.element, 'hide');
-    };
-
     Revealing.prototype.reset = function() {
-        removeClassName(this.element, 'hide');
         removeClassName(this.element, 'reveal')
         addClassName(this.element, 'reset');
     };

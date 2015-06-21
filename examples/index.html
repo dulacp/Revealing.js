@@ -9,7 +9,8 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var revealings = [];
+            var revealings = [],
+                unrevealings = [];
 
             // helper
             function hasClassName(el, className) {
@@ -27,9 +28,15 @@
             });
 
             // initialize
+
             var texts = document.querySelectorAll('.fancy-title, .fancy-quote');
             Array.prototype.forEach.call(texts, function(el) {
                 revealings.push( new Revealing(el) );
+            });
+
+            var texts2 = document.querySelectorAll('.fancy-hiding');
+            Array.prototype.forEach.call(texts2, function(el) {
+                revealings.push( new Revealing(el, { className: 'unrevealing' }) );
             });
 
             var blocs = document.querySelectorAll('.fancy-blocks');
@@ -57,14 +64,15 @@
             Array.prototype.forEach.call(plays, function(el) {
                 el.addEventListener('click', function(e) {
                     e.preventDefault();
-                    var target = document.querySelector(this.getAttribute('href'));
+                    var targetHash = this.getAttribute('href');
+                    var target = document.querySelector(targetHash);
 
                     if (!target) {
                         return;
                     }
 
                     // only replay the targeted elements
-                    var revealElements = target.querySelectorAll('.revealing');
+                    var revealElements = target.querySelectorAll('.revealing, .unrevealing');
                     Array.prototype.forEach.call(revealElements, function(rel) {
                         revealings.forEach(function(r) {
                             if (rel == r.element) {
@@ -122,15 +130,15 @@
             <a href="#support-line-breaks" class="play">play</a>
         </section>
 
-        <section id="hide-text" class="hide-demo">
+        <section id="hiding-text">
             <h2>Hide as well as show</h2>
-            <blockquote class="fancy-quote revealing">
+            <blockquote class="fancy-hiding unrevealing">
                 <p>Je suis jeune il est vrai<br>Mais aux &acirc;mes bien n&eacute;es<br>La valeur n'attend point le nombre des ann&eacute;es</p>
                 <footer>
                     <cite><a href="http://www.dicocitations.com/citations/citation-4659.php">Pierre Corneille</a> <br>Le Cid, (II, 2), 1636</cite>
                 </footer>
             </blockquote>
-            <a href="#hide-text" class="play">play</a>
+            <a href="#hiding-text" class="play">play</a>
         </section>
 
         <section id="custom-tokenizer">
