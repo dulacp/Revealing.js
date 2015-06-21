@@ -9,6 +9,7 @@ var rename = require('gulp-rename');
 var prefix = require('gulp-autoprefixer');
 var qunit  = require('gulp-qunit');
 var header = require('gulp-header');
+var clean = require('gulp-clean');
 
 var pkg = require('./package.json');
 var banner = ['/**',
@@ -57,5 +58,10 @@ process.on('exit', function (errorCode) {
     process.exit(errorCode);
 });
 
-gulp.task('build', ['scripts', 'styles']);
+gulp.task('clean', function () {
+    return gulp.src(['dist'], { read: false }).pipe(clean());
+});
+
+
+gulp.task('build', ['clean', 'scripts', 'styles']);
 gulp.task('default', ['lint', 'build', 'watch']);
