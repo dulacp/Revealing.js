@@ -53,19 +53,9 @@ gulp.task('watch', function() {
     gulp.watch('src/*.scss', ['styles']);
 });
 
-gulp.task('qunit', function() {
-    return gulp.src('./test/test-runner.html')
-        .pipe(qunit())
-        .on('error', function(err) {
-            errorCode = 1;
-            process.emit('exit', [errorCode]);
-        });
-});
-
 process.on('exit', function (errorCode) {
     process.exit(errorCode);
 });
 
 gulp.task('build', ['scripts', 'styles']);
-gulp.task('test', ['lint', 'build', 'qunit']);
 gulp.task('default', ['lint', 'build', 'watch']);

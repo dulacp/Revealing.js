@@ -4,8 +4,6 @@
 
 > Inspired by the Secret app.
 
-[![Build Status](https://travis-ci.org/dulaccc/Revealing.js.png?branch=master)](https://travis-ci.org/dulaccc/Revealing.js)
-
 ![Text animation example](examples/quote.gif)
 
 
